@@ -1,6 +1,6 @@
 {
   "name": "sfdm",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This command line tool will help you move data across Salesforce Orgs with support to data with External Id relationship and Record Type. It will save you the hassle work of spreadsheet VLOOKUP and stuff.",
   "main": "index.js",
   "scripts": {
