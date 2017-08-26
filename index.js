@@ -36,25 +36,6 @@ options
 
 options.parse(process.argv);
 
-// conn.login(options.username, options.password, function (err, userInfo) {
-//     if (err) { return console.error(err); }
-//     console.log(conn.instanceUrl);
-//     console.log("User ID: " + userInfo.id);
-//     console.log("Org ID: " + userInfo.organizationId);
-//     let method = process.argv[2];
-//     try {
-//         if (method == 'export') {
-//             exporter(options, conn);
-//         } else if (method == 'import') {
-//             importer(options, conn);
-//         } else {
-//             console.error(`Method: ${method} is not found`);
-//         }
-//     } catch (err) {
-//         console.error(err);
-//     }
-// });
-
 function logIn(options, callback) {
     var conn = new jsforce.Connection({
         loginUrl: options.loginUrl

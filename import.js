@@ -51,6 +51,3 @@ module.exports = (options, conn) => {
     });
   });
 }
-
-
-// node index import -u integration@tg.com.sit -p apassword2 -o Flight__c -f ./Flight__c.json -e Flight_External_ID__c -l https://test.salesforce.com
