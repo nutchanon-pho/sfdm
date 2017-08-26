@@ -1,7 +1,7 @@
 {
-  "name": "salesforce-data-migrater-cli",
+  "name": "sfdm",
   "version": "1.0.0",
-  "description": "A CLI tool for migrating data across Salesforce orgs with preservance of related data.",
+  "description": "This command line tool will help you move data across Salesforce Orgs with support to data with External Id relationship and Record Type. It will save you the hassle work of spreadsheet VLOOKUP and stuff.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
