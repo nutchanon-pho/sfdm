@@ -84,3 +84,8 @@ This is not yet supported.
 
 ## Acknowledgments
 This project heavily relying on the use of [jsforce](https://github.com/jsforce/jsforce). Please send love.
+
+## Donate
+Bitcoin: 12kwTkrhx2zmUpdrEfTKRqJm93xzckLgTu
+Litecoin: LKU1RFPXeK7GUh7QDcW7pYW43dYVwQyBqa
+Ethereum: 0xdF67ED920348B201404dcDb004A9Ce0E93dD3443
