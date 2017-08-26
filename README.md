@@ -1,13 +1,13 @@
 # Salesforce Data Migration CLI
 
-This command line tool will help you move data across Salesforce Orgs with support to data with relationship and Record Type.
+This command line tool will help you move data across Salesforce Orgs with support to data with External Id relationship and Record Type. It will save you the hassle work of spreadsheet VLOOKUP and stuff.
 
 ## Getting Started
 
 
 ### Prerequisites
 
-Latest version of Node.js and npm
+Latest version of Node.js and npm.
 Please visit https://nodejs.org/en/
 
 ### Installing
@@ -17,18 +17,6 @@ npm install sfdm -g
 ```
 
 Then, you can run ```sfdm --help``` to check if it is installed successfully.
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
 
 ## Usage
 
@@ -74,6 +62,25 @@ Example:
 ```
 node index import -u salesforce@salesforce.com -p password -o Account -f ./Account.json -e Account_External_Id__c -l https://test.salesforce.com
 ```
+
+## Data with Relationship
+
+### External Id
+The relationship with other object with External Id can be imported using sfdm. For example, there is a ```Passenger__c``` Custom Object which related to ```Flight__c``` Custom Object through ```FlightId__c``` Custom Field. Fortunately, ```Flight__c``` has an External Id Field which is named ```Flight_External_Id__c```. For the ```import``` to automatically related ```Passenger__c``` and ```Flight__c``` automatically. The External Id field must be retrieved as ```FlightId__r.Flight_External_Id__c```. For example,
+
+```
+sfdm export -u salesforce@salesforce.com -p password -o Passenger__c -q "SELECT Name, FlightId__r.Flight_External_Id__c FROM Passenger__c LIMIT 10" -l https://login.salesforce.com -s ./Passenger__c.json
+```
+Please pay attention to the ```FlightId__r.Flight_External_Id__c```, this is where the relationship is specified and Salesforce will handle the relationship accordingly.
+
+### Record Type
+Record Type assignment can be done in a single import unlike the traditional Data Loader way with VLOOKUP. sfdm will query for all of the Record Type before the import and they will be assigned accordingly. The prerequisite is for the JSON file to be retrieved with ```RecordType.DeveloperName``` field. For example,
+```
+sfdm export -u salesforce@salesforce.com -p password -o Passenger__c -q "SELECT Name, RecordType.DeveloperName FROM Passenger__c LIMIT 10" -l https://login.salesforce.com -s ./Passenger__c.json
+```
+
+### Relationship without External Id
+This is not yet supported.
 
 ## Acknowledgments
 This project heavily relying on the use of [jsforce](https://github.com/jsforce/jsforce). Please send love.
