@@ -35,7 +35,7 @@ module.exports = (options, conn) => {
             }
           }
 
-          conn.bulk.pollTimeout = 25000; // Bulk timeout can be specified globally on the connection object
+          conn.bulk.pollTimeout = 250000000; // Bulk timeout can be specified globally on the connection object
           conn.bulk.load(options.object, 'upsert', { extIdField: options.externalIdField }, records, function (err, rets) {
             if (err) { return console.error(err); }
             for (var i = 0; i < rets.length; i++) {
