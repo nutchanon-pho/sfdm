@@ -60,7 +60,7 @@ The specified JSON file will be imported to the Salesforce org in the manner of 
 
 Example:
 ```
-node index import -u salesforce@salesforce.com -p password -o Account -f ./Account.json -e Account_External_Id__c -l https://test.salesforce.com
+sfdm import -u salesforce@salesforce.com -p password -o Account -f ./Account.json -e Account_External_Id__c -l https://test.salesforce.com
 ```
 
 ## Data with Relationship
